@@ -245,10 +245,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function playSound(type) { /* ... unchanged ... */ }
     
-    // --- MODIFIED speak function (to prefer female voices) ---
+    // --- MODIFIED speak function (to prefer female voices and accept onend) ---
     speak = (text, options = {}) => {
-        const { lang = 'vi-VN', rate = 0.7, pitch = 1.1 } = options;
-        if (!synth) return;
+        const { lang = 'vi-VN', rate = 0.7, pitch = 1.1, onend = null } = options; // Destructure onend
+        if (!synth) {
+            if (onend && typeof onend === 'function') onend(); // Call callback immediately if synth is disabled
+            return;
+        }
         const u = new SpeechSynthesisUtterance(text);
         
         const voices = synth.getVoices();
@@ -289,6 +292,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         u.rate = rate;
         u.pitch = pitch;
+
+        // --- THIS IS THE KEY ADDITION ---
+        if (onend && typeof onend === 'function') {
+            u.onend = onend;
+        }
+        // --- END ADDITION ---
+        
         synth.cancel();
         synth.speak(u);
     };
@@ -377,17 +387,22 @@ document.addEventListener('DOMContentLoaded', () => {
             if (candidate && candidate.content?.parts?.[0]?.text) {
                 geminiChatHistory.push(candidate.content);
                 renderChat();
-                speak(candidate.content.parts[0].text, { lang: 'vi-VN' }); // Uses default rate 0.9
                 updateScore(20);
 
-                // --- NEW LOGIC: End game after 1 question ---
+                // --- MODIFIED LOGIC: End game after 1 question AND after speech finishes ---
                 questionAsked = true; // Set flag
                 document.getElementById('gemini-prompt').disabled = true;
                 micStatus.textContent = "Cảm ơn con! Tinh Tú sắp đưa con về Trái Đất rồi.";
                 
-                // Automatically move to end screen after a delay
-                setTimeout(showEndScreen, 4000); // Wait 4s
-                // --- END NEW LOGIC ---
+                // Call showEndScreen only after speech is done
+                speak(candidate.content.parts[0].text, { 
+                    lang: 'vi-VN',
+                    onend: showEndScreen // <-- THIS IS THE FIX
+                }); 
+                
+                // Removed the fixed timeout:
+                // setTimeout(showEndScreen, 4000); 
+                // --- END MODIFIED LOGIC ---
 
             } else { throw new Error("Invalid response structure from API"); }
 
@@ -691,4 +706,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
