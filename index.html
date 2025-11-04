@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
         askButton.disabled = true;
         micButton.disabled = true;
 
-        const apiKey = ""; 
+        const apiKey = "AIzaSyCDDsJPohTsPGzAQknZKH94rZc0GH9KG44"; 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
         const systemPrompt = "Bạn là một nhà thiên văn học thân thiện, tên là 'Tinh Tú', đang nói chuyện với một đứa trẻ từ 6 đến 10 tuổi. Hãy trả lời các câu hỏi về không gian một cách đơn giản, ngắn gọn (tối đa 3-4 câu), và đầy hứng khởi. Sử dụng những từ ngữ dễ hiểu, ví von ngộ nghĩnh. Luôn giữ giọng điệu vui vẻ, khuyến khích và kết thúc bằng một câu hỏi nhỏ để gợi mở trí tò mò. Ví dụ: '...Con có thấy điều đó kỳ diệu không?'";
         const payload = { contents: geminiChatHistory, systemInstruction: { parts: [{ text: systemPrompt }] } };
@@ -691,3 +691,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
