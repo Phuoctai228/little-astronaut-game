@@ -104,6 +104,7 @@
 
     <div id="game-container" class="game-container flex flex-col items-center justify-center p-4">
 
+        <!-- Start Screen -->
         <div id="start-screen" class="text-center">
             <h1 class="text-4xl md:text-6xl font-black text-yellow-300 mb-4">Phi Hành Gia Nhí Khám Phá Vũ Trụ</h1>
             <h2 class="text-2xl md:text-3xl text-purple-300 mb-8">Little Astronaut: A Space Adventure</h2>
@@ -112,7 +113,9 @@
             </button>
         </div>
 
+        <!-- Main Game Screen -->
         <div id="game-screen" class="hidden w-full h-full flex-col">
+            <!-- Header -->
             <div class="flex justify-between items-center p-2 border-b-2 border-purple-400/50">
                 <h2 id="mission-title" class="text-xl md:text-2xl font-bold text-yellow-300">Nhiệm Vụ 1: Trang Bị Lên Đường (Gear Up!)</h2>
                 <div class="flex items-center space-x-2 text-lg">
@@ -121,6 +124,7 @@
                 </div>
             </div>
 
+            <!-- Progress Bar -->
             <div class="w-full p-4">
                 <div id="progress-bar-container" class="w-full h-4 rounded-full relative">
                     <div id="progress-bar-fill" class="h-full rounded-full" style="width: 0%;"></div>
@@ -128,10 +132,13 @@
                 </div>
             </div>
 
+            <!-- Mission Content Area -->
             <div id="mission-content" class="flex-grow w-full relative">
                 
+                <!-- ADDED SKIP BUTTON -->
                 <button id="skip-button" class="hidden absolute top-2 right-4 bg-gray-600 hover:bg-gray-700 text-white text-sm font-bold py-1 px-3 rounded-full z-20">Bỏ qua</button>
                 
+                <!-- Mission 1: Build a Rocket -->
                 <div id="mission-1-content" class="w-full h-full flex flex-col items-center justify-center p-4">
                     <h3 class="text-2xl font-bold text-center text-yellow-300 mb-1 z-10">Nhiệm Vụ 1: Lắp Ráp Tàu Con Thoi!</h3>
                     <p class="text-purple-200 mb-4">Kéo các bộ phận vào đúng vị trí để hoàn thành con tàu.</p>
@@ -153,6 +160,7 @@
                     </div>
                 </div>
 
+                <!-- Mission 2: Solar System Order -->
                 <div id="mission-2-content" class="hidden w-full h-full flex flex-col items-center justify-center">
                     <h3 id="mission-2-subtitle" class="text-xl text-center mb-2">Vòng 1: Hãy sắp xếp các hành tinh theo đúng thứ tự.</h3>
                     <div id="solar-system" class="w-full flex-grow flex items-center justify-center space-x-1 md:space-x-2 p-2 overflow-x-auto">
@@ -162,6 +170,7 @@
                     <div id="planet-bank" class="w-full bg-black/30 p-2 rounded-lg flex justify-center items-center flex-wrap gap-2"></div>
                 </div>
                 
+                <!-- Mission 3: Fun Facts (modal style) -->
                 <div id="mission-3-content" class="hidden absolute inset-0 bg-black/70 z-10 flex items-center justify-center">
                      <div id="fun-fact-card" class="bg-indigo-900 border-2 border-purple-400 rounded-2xl p-6 text-center w-11/12 max-w-lg transform transition-all duration-500 scale-0 opacity-0">
                         <h3 id="fun-fact-title" class="text-3xl font-bold text-yellow-300 mb-4"></h3>
@@ -170,6 +179,7 @@
                     </div>
                 </div>
 
+                <!-- Mission 4: Vocabulary Quiz -->
                 <div id="mission-4-content" class="hidden w-full h-full flex flex-col items-center justify-center p-4">
                      <h3 class="text-xl text-center mb-4">Nối hình ảnh với từ tiếng Anh đúng nhé!</h3>
                      <div class="flex-grow w-full flex justify-around items-center">
@@ -178,6 +188,7 @@
                      </div>
                 </div>
                 
+                <!-- Mission 5: Ask the Universe (Chat Mode) -->
                 <div id="mission-5-content" class="hidden w-full h-full flex flex-col p-4">
                     <div class="flex-shrink-0">
                         <h3 class="text-2xl font-bold text-center text-cyan-300 mb-2">✨ Trò Chuyện Cùng Vũ Trụ ✨</h3>
@@ -201,6 +212,7 @@
             </div>
         </div>
         
+        <!-- End Screen -->
         <div id="end-screen" class="hidden text-center">
             <h1 class="text-4xl md:text-5xl font-black text-green-400 mb-4">Chúc mừng Phi Hành Gia Nhí!</h1>
             <h2 class="text-2xl md:text-3xl text-purple-300 mb-6">Con đã hoàn thành xuất sắc nhiệm vụ!</h2>
@@ -222,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let mission2Round = 1;
     let mission4MatchedPairs = 0;
     let geminiChatHistory = [];
-    let isSkippingMission3 = false; // ADDED
+    let isSkippingMission3 = false;
     
     // Elements
     const startScreen = document.getElementById('start-screen');
@@ -231,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('start-button');
     const nextButton = document.getElementById('next-button');
     const restartButton = document.getElementById('restart-button');
-    const skipButton = document.getElementById('skip-button'); // ADDED
+    const skipButton = document.getElementById('skip-button');
     const scoreDisplay = document.getElementById('score');
     const finalScoreDisplay = document.getElementById('final-score');
     const missionTitle = document.getElementById('mission-title');
@@ -245,23 +257,105 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function playSound(type) { /* ... unchanged ... */ }
     
-    // --- MODIFIED speak function ---
-    speak = (text, options = {}) => {
-        const { lang = 'vi-VN', rate = 0.75, pitch = 1.1 } = options;
-        if (!synth) return;
-        const u = new SpeechSynthesisUtterance(text);
-        const v = synth.getVoices().find(v => v.lang === lang) || synth.getVoices().find(v => v.lang.startsWith(lang.substring(0,2))) || synth.getVoices().find(v => v.lang.startsWith('en')) || synth.getVoices()[0];
-        if (v) {
-            u.voice = v;
-            u.lang = v.lang;
-        } else {
-            u.lang = lang;
+    // --- MODIFIED speak function (to be safer and prefer female voices) ---
+    let voiceList = [];
+    try {
+        // Tải giọng nói ngay lập tức nếu có thể
+        voiceList = synth.getVoices();
+        // Lắng nghe sự kiện nếu danh sách ban đầu trống
+        if (voiceList.length === 0) {
+            synth.onvoiceschanged = () => {
+                voiceList = synth.getVoices();
+                console.log("Voices loaded (onvoiceschanged):", voiceList.length);
+            };
         }
-        u.rate = rate; // Use rate from options
-        u.pitch = pitch; // Use pitch from options
-        synth.cancel();
-        synth.speak(u);
+    } catch (e) {
+        console.error("Speech Synthesis not supported", e);
+    }
+
+    function loadVoices() {
+        if (voiceList.length === 0) {
+            try {
+                voiceList = synth.getVoices();
+            } catch (e) {
+                console.error("Could not get voices", e);
+            }
+        }
+    }
+
+    speak = (text, options = {}) => {
+        // Trả về một Promise để có thể await
+        return new Promise((resolve, reject) => {
+            const { lang = 'vi-VN', rate = 0.7, pitch = 1.1 } = options;
+            if (!synth) {
+                console.warn("Speech Synthesis not available.");
+                resolve(); // Hoàn thành ngay nếu không có âm thanh
+                return;
+            }
+    
+            try {
+                const u = new SpeechSynthesisUtterance(text);
+                
+                if (voiceList.length === 0) {
+                    console.warn("No voices loaded, attempting sync getVoices().");
+                    loadVoices();
+                }
+                const voices = voiceList;
+    
+                let v = null;
+    
+                if (voices.length > 0) {
+                    // 1. Tìm bất kỳ giọng tiếng Việt nào (ưu tiên giọng nam/mặc định)
+                    v = voices.find(v => v.lang === lang);
+                    
+                    // 2. Nếu không, tìm bất kỳ giọng 'vi' nào
+                    if (!v) {
+                        v = voices.find(v => v.lang.startsWith(lang.substring(0,2)));
+                    }
+                    
+                    // 3. Dự phòng sang tiếng Anh
+                    if (!v) {
+                        v = voices.find(v => v.lang.startsWith('en'));
+                    }
+                    
+                    // 4. Dự phòng sang giọng nói đầu tiên có sẵn
+                    if (!v) {
+                        v = voices[0];
+                    }
+                } else {
+                    console.warn("Voice list is empty, using browser default for lang.");
+                }
+    
+                if (v) {
+                    u.voice = v;
+                    u.lang = v.lang;
+                } else {
+                    u.lang = lang; // Đặt ngôn ngữ ngay cả khi không tìm thấy giọng nói cụ thể
+                }
+                
+                u.rate = rate;
+                u.pitch = pitch;
+
+                // Khi đọc xong, promise sẽ được 'resolve'
+                u.onend = () => {
+                    resolve();
+                };
+                
+                // Xử lý lỗi
+                u.onerror = (e) => {
+                    console.error("Speech synthesis error:", e);
+                    reject(e); // 'reject' promise nếu có lỗi
+                };
+
+                synth.cancel(); // Hủy mọi lời nói đang diễn ra
+                synth.speak(u);
+            } catch (e) {
+                console.error("Error during speech synthesis setup:", e);
+                reject(e); // 'reject' promise nếu có lỗi cài đặt
+            }
+        });
     };
+
 
     const planets = [ /* ... unchanged ... */ ];
     const funFacts = [ /* ... unchanged ... */ ];
@@ -270,7 +364,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateScore(points) { score += points; scoreDisplay.textContent = score; }
     function updateProgressBar() { const progress = Math.min(100, (currentMission - 1) / 5 * 100); progressBarFill.style.width = `${progress}%`; rocketProgress.style.left = `calc(${progress}% - 12px)`; }
     
-    // --- MODIFIED showMission function ---
     function showMission(missionNumber) {
         Object.values(missionContents).forEach(content => content.classList.add('hidden'));
         if (missionContents[missionNumber]) {
@@ -348,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (candidate && candidate.content?.parts?.[0]?.text) {
                 geminiChatHistory.push(candidate.content);
                 renderChat();
-                speak(candidate.content.parts[0].text, { lang: 'vi-VN' }); // Uses default rate 0.9
+                await speak(candidate.content.parts[0].text, { lang: 'vi-VN' }); // Uses default rate 0.9 and waits
                 updateScore(20);
 
                 // --- NEW LOGIC: End game after 1 question ---
@@ -453,7 +546,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function showEndScreen() { /* ... unchanged ... */ }
     
-    // --- MODIFIED resetGame function ---
     function resetGame() {
         currentMission = 0;
         score = 0;
@@ -468,11 +560,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startButton.addEventListener('click', () => {
         if (audioContext.state === 'suspended') { audioContext.resume(); }
-        synth.getVoices();
+        
+        // Load voices on user interaction
+        loadVoices();
+        
         startScreen.classList.add('hidden');
         gameScreen.classList.remove('hidden');
         gameScreen.classList.add('flex');
-        speak("Xin chào Phi Hành Gia Nhí! Chào mừng con. Con đã sẵn sàng chưa?", {lang: 'vi-VN'}); // Default rate 0.9
+        
+        // Delay speech slightly to allow voice list to populate
+        setTimeout(() => {
+            speak("Xin chào Phi Hành Gia Nhí! Chào mừng con. Con đã sẵn sàng chưa?", {lang: 'vi-VN'});
+        }, 100);
+        
         setTimeout(setupMission1, 4000); 
     });
     
@@ -486,7 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
     funFacts.splice(0, funFacts.length,
         {
             id: 'mercury', title: 'Sao Thủy (Mercury)',
-            text: "Hãy tìm <strong>Sao Thủy (Mercury)</strong>! Đây là hành tinh ở gần <strong>Mặt Trời (Sun)</strong> nhất đấy.",
+            text: "Đây là <strong>Sao Thủy (Mercury)</strong>! Đây là hành tinh ở gần <strong>Mặt Trời (Sun)</strong> nhất đấy.",
             speechText: "Sao Thủy, tiếng Anh là Mercury. Hãy tìm Sao Thủy! Đây là hành tinh ở gần Mặt Trời, tiếng Anh là Sun, nhất đấy."
         },
         {
@@ -544,7 +644,10 @@ document.addEventListener('DOMContentLoaded', () => {
         missionTitle.innerHTML = 'Nhiệm Vụ 3: Khám Phá Điều Kỳ Thú';
         updateProgressBar();
         showMission(3); // Hides skipButton
-        speak('Nhiệm Vụ 3: Khám Phá Điều Kỳ Thú', {lang: 'vi-VN', rate: 0.75});
+        // Chờ đọc xong tiêu đề
+        try {
+            await speak('Nhiệm Vụ 3: Khám Phá Điều Kỳ Thú', {lang: 'vi-VN', rate: 0.75});
+        } catch (e) { console.error("Speech failed", e); }
         
         isSkippingMission3 = false; // Reset flag
         skipButton.classList.remove('hidden'); // Show skip button
@@ -574,11 +677,23 @@ document.addEventListener('DOMContentLoaded', () => {
             h += '</div>';
             i.innerHTML = h;
             
-            speak(f.speechText, {lang: 'vi-VN', rate: 0.75}); 
             updateScore(2); // Award points as facts are seen
             
-            await new Promise(r => setTimeout(r, 9000));
-            if (isSkippingMission3) break; // Check flag after await
+            // Chờ cho đến khi đọc xong (không giới hạn thời gian)
+            try {
+                await speak(f.speechText, {lang: 'vi-VN', rate: 0.75});
+            } catch (e) {
+                console.error("Speech failed, continuing...", e);
+                // Nếu lời nói bị lỗi, chỉ cần đợi 7 giây
+                if (!isSkippingMission3) {
+                    await new Promise(r => setTimeout(r, 7000));
+                }
+            }
+            
+            if (isSkippingMission3) break; // Check flag after speech
+            
+            // Chờ 1 giây sau khi nói xong rồi mới ẩn thẻ
+            await new Promise(r => setTimeout(r, 1000)); 
             
             c.classList.remove('scale-100', 'opacity-100');
             c.classList.add('scale-0', 'opacity-0');
