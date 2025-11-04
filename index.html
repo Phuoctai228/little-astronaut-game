@@ -130,7 +130,7 @@
 
             <div id="mission-content" class="flex-grow w-full relative">
                 <div id="mission-1-content" class="w-full h-full flex flex-col items-center justify-center p-4">
-                    <h3 class="text-2xl font-bold text-center text-yellow-300 mb-1 z-10">Nhiệm VVụ 1: Lắp Ráp Tàu Con Thoi!</h3>
+                    <h3 class="text-2xl font-bold text-center text-yellow-300 mb-1 z-10">Nhiệm Vụ 1: Lắp Ráp Tàu Con Thoi!</h3>
                     <p class="text-purple-200 mb-4">Kéo các bộ phận vào đúng vị trí để hoàn thành con tàu.</p>
                     <div class="w-full flex-grow flex items-center justify-around">
                         <div id="rocket-parts-bank" class="flex flex-col items-center space-y-4 p-4 bg-black/20 rounded-lg h-full justify-center">
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Added rate and pitch to options, defaulting to 0.9 and 1.1
     // Default language is now vi-VN
     speak = (text, options = {}) => {
-        const { lang = 'vi-VN', rate = 0.9, pitch = 1.1 } = options;
+        const { lang = 'vi-VN', rate = 1.0, pitch = 1.1 } = options;
         if (!synth) return;
         const u = new SpeechSynthesisUtterance(text);
         const v = synth.getVoices().find(v => v.lang === lang) || synth.getVoices().find(v => v.lang.startsWith(lang.substring(0,2))) || synth.getVoices().find(v => v.lang.startsWith('en')) || synth.getVoices()[0];
@@ -513,3 +513,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
