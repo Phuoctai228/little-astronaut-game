@@ -104,7 +104,6 @@
 
     <div id="game-container" class="game-container flex flex-col items-center justify-center p-4">
 
-        <!-- Start Screen -->
         <div id="start-screen" class="text-center">
             <h1 class="text-4xl md:text-6xl font-black text-yellow-300 mb-4">Phi Hành Gia Nhí Khám Phá Vũ Trụ</h1>
             <h2 class="text-2xl md:text-3xl text-purple-300 mb-8">Little Astronaut: A Space Adventure</h2>
@@ -113,9 +112,7 @@
             </button>
         </div>
 
-        <!-- Main Game Screen -->
         <div id="game-screen" class="hidden w-full h-full flex-col">
-            <!-- Header -->
             <div class="flex justify-between items-center p-2 border-b-2 border-purple-400/50">
                 <h2 id="mission-title" class="text-xl md:text-2xl font-bold text-yellow-300">Nhiệm Vụ 1: Trang Bị Lên Đường (Gear Up!)</h2>
                 <div class="flex items-center space-x-2 text-lg">
@@ -124,7 +121,6 @@
                 </div>
             </div>
 
-            <!-- Progress Bar -->
             <div class="w-full p-4">
                 <div id="progress-bar-container" class="w-full h-4 rounded-full relative">
                     <div id="progress-bar-fill" class="h-full rounded-full" style="width: 0%;"></div>
@@ -132,9 +128,7 @@
                 </div>
             </div>
 
-            <!-- Mission Content Area -->
             <div id="mission-content" class="flex-grow w-full relative">
-                <!-- Mission 1: Build a Rocket -->
                 <div id="mission-1-content" class="w-full h-full flex flex-col items-center justify-center p-4">
                     <h3 class="text-2xl font-bold text-center text-yellow-300 mb-1 z-10">Nhiệm Vụ 1: Lắp Ráp Tàu Con Thoi!</h3>
                     <p class="text-purple-200 mb-4">Kéo các bộ phận vào đúng vị trí để hoàn thành con tàu.</p>
@@ -156,17 +150,15 @@
                     </div>
                 </div>
 
-                <!-- Mission 2: Solar System Order -->
                 <div id="mission-2-content" class="hidden w-full h-full flex flex-col items-center justify-center">
                     <h3 id="mission-2-subtitle" class="text-xl text-center mb-2">Vòng 1: Hãy sắp xếp các hành tinh theo đúng thứ tự.</h3>
                     <div id="solar-system" class="w-full flex-grow flex items-center justify-start space-x-1 md:space-x-2 p-2 overflow-x-auto">
-                         <div class="flex-shrink-0 flex flex-col items-center text-center"><div class="w-16 h-16 md:w-24 md:h-24 bg-yellow-400 rounded-full flex items-center justify-center animate-pulse shadow-[0_0_30px_#facc15]"></div><p class="font-bold mt-1">Sun</p></div>
+                         <div class="flex-shrink-0 flex flex-col items-center text-center"><div class="w-16 h-16 md:w-24 md:h-24 bg-yellow-400 rounded-full flex items-center justify-center animate-pulse shadow-[0_0_30px_#facc15]"></div><p class="font-bold mt-1">Mặt Trời</p></div>
                         <div id="planet-slots" class="flex items-center space-x-1 md:space-x-2"></div>
                     </div>
                     <div id="planet-bank" class="w-full bg-black/30 p-2 rounded-lg flex justify-center items-center flex-wrap gap-2"></div>
                 </div>
                 
-                <!-- Mission 3: Fun Facts (modal style) -->
                 <div id="mission-3-content" class="hidden absolute inset-0 bg-black/70 z-10 flex items-center justify-center">
                      <div id="fun-fact-card" class="bg-indigo-900 border-2 border-purple-400 rounded-2xl p-6 text-center w-11/12 max-w-lg transform transition-all duration-500 scale-0 opacity-0">
                         <h3 id="fun-fact-title" class="text-3xl font-bold text-yellow-300 mb-4"></h3>
@@ -175,7 +167,6 @@
                     </div>
                 </div>
 
-                <!-- Mission 4: Vocabulary Quiz -->
                 <div id="mission-4-content" class="hidden w-full h-full flex flex-col items-center justify-center p-4">
                      <h3 class="text-xl text-center mb-4">Nối hình ảnh với từ tiếng Anh đúng nhé!</h3>
                      <div class="flex-grow w-full flex justify-around items-center">
@@ -184,11 +175,10 @@
                      </div>
                 </div>
                 
-                <!-- Mission 5: Ask the Universe (Chat Mode) -->
                 <div id="mission-5-content" class="hidden w-full h-full flex flex-col p-4">
                     <div class="flex-shrink-0">
                         <h3 class="text-2xl font-bold text-center text-cyan-300 mb-2">✨ Trò Chuyện Cùng Vũ Trụ ✨</h3>
-                        <p class="text-center text-purple-200 mb-4">Hỏi bất cứ điều gì con thắc mắc về không gian nhé!</p>
+                        <p class="text-center text-purple-200 mb-4">Hỏi bất cứ điều gì con thắc mắc về không gian nhé! (Chỉ 1 câu hỏi thôi nha)</p>
                     </div>
                     <div id="gemini-response" class="flex-grow p-3 w-full bg-black/30 rounded-lg flex flex-col space-y-4 min-h-0 my-2"></div>
                     <div class="flex-shrink-0">
@@ -208,9 +198,8 @@
             </div>
         </div>
         
-        <!-- End Screen -->
         <div id="end-screen" class="hidden text-center">
-            <h1 class="text-4xl md:text-5xl font-black text-green-400 mb-4">Congratulations, Little Astronaut!</h1>
+            <h1 class="text-4xl md:text-5xl font-black text-green-400 mb-4">Chúc mừng Phi Hành Gia Nhí!</h1>
             <h2 class="text-2xl md:text-3xl text-purple-300 mb-6">Con đã hoàn thành xuất sắc nhiệm vụ!</h2>
              <div class="bg-indigo-800 border-2 border-yellow-400 rounded-full w-48 h-48 flex flex-col items-center justify-center mx-auto mb-6 shadow-lg">
                 <div class="text-2xl">🏆</div>
@@ -283,7 +272,11 @@ document.addEventListener('DOMContentLoaded', () => {
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
     
+    let questionAsked = false; // Flag for Mission 5
+
     async function askGemini() {
+        if (questionAsked) return; // Only allow one question
+
         const promptInput = document.getElementById('gemini-prompt');
         const userQuery = promptInput.value.trim();
         if (!userQuery) return;
@@ -296,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const geminiLoader = document.getElementById('gemini-loader');
         const askButton = document.getElementById('ask-gemini-button');
         const micButton = document.getElementById('mic-button');
+        const micStatus = document.getElementById('mic-status');
 
         geminiLoader.classList.remove('hidden');
         askButton.disabled = true;
@@ -324,6 +318,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderChat();
                 speak(candidate.content.parts[0].text, { lang: 'vi-VN' });
                 updateScore(20);
+
+                // --- NEW LOGIC: End game after 1 question ---
+                questionAsked = true; // Set flag
+                document.getElementById('gemini-prompt').disabled = true;
+                micStatus.textContent = "Cảm ơn con! Tinh Tú sắp đưa con về Trái Đất rồi.";
+                
+                // Automatically move to end screen after a delay
+                setTimeout(showEndScreen, 4000); // Wait 4s
+                // --- END NEW LOGIC ---
+
             } else { throw new Error("Invalid response structure from API"); }
 
         } catch (error) {
@@ -334,8 +338,11 @@ document.addEventListener('DOMContentLoaded', () => {
             speak(errorMessage.parts[0].text, {lang: 'vi-VN'});
         } finally {
             geminiLoader.classList.add('hidden');
-            askButton.disabled = false;
-            micButton.disabled = false;
+            // Only re-enable if the question *wasn't* successfully asked
+            if (!questionAsked) {
+                askButton.disabled = false;
+                micButton.disabled = false;
+            }
         }
     }
 
@@ -345,17 +352,24 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProgressBar();
         showMission(5);
 
+        questionAsked = false; // Reset flag for this mission
         geminiChatHistory = []; // Reset history
         renderChat();
         
+        // Hide the next button initially. Game will end after 1 question.
+        nextButton.classList.add('hidden');
         nextButton.textContent = "Hoàn thành trò chơi";
-        nextButton.classList.remove('hidden');
         nextButton.onclick = showEndScreen;
 
         const askButton = document.getElementById('ask-gemini-button');
         const micButton = document.getElementById('mic-button');
         const promptInput = document.getElementById('gemini-prompt');
         const micStatus = document.getElementById('mic-status');
+
+        // Re-enable inputs in case they were disabled
+        promptInput.disabled = false;
+        askButton.disabled = false;
+        micButton.disabled = false;
 
         askButton.onclick = askGemini;
         promptInput.addEventListener('keypress', (e) => {
@@ -374,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
             recognition.interimResults = false;
 
             micButton.onclick = () => {
-                recognition.start();
+                if (!questionAsked) recognition.start();
             };
 
             recognition.onstart = () => {
@@ -413,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startScreen.classList.add('hidden');
         gameScreen.classList.remove('hidden');
         gameScreen.classList.add('flex');
-        speak("Hello, Little Astronaut! Welcome. Are you ready?", {lang: 'en-US'});
+        speak("Xin chào Phi Hành Gia Nhí! Chào mừng con. Con đã sẵn sàng chưa?", {lang: 'vi-VN'});
         setTimeout(setupMission1, 4000); 
     });
     
@@ -421,20 +435,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Re-pasting unchanged functions for brevity ---
     playSound = (type) => { if (!audioContext || audioContext.state === 'suspended') { audioContext.resume(); } const o = audioContext.createOscillator(), g = audioContext.createGain(); o.connect(g); g.connect(audioContext.destination); if (type === 'correct') { o.type = 'sine'; o.frequency.setValueAtTime(600, audioContext.currentTime); } else if (type === 'wrong') { o.type = 'square'; o.frequency.setValueAtTime(150, audioContext.currentTime); } g.gain.setValueAtTime(0.3, audioContext.currentTime); g.gain.exponentialRampToValueAtTime(0.00001, audioContext.currentTime + 0.5); o.start(); o.stop(audioContext.currentTime + 0.5); };
-    speak = (text, options = {}) => { const { lang = 'en-US' } = options; if (!synth) return; const u = new SpeechSynthesisUtterance(text); const v = synth.getVoices().find(v => v.lang.startsWith(lang.substring(0,2))) || synth.getVoices().find(v => v.lang.startsWith('en')) || synth.getVoices()[0]; if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = lang; } u.rate = 0.9; u.pitch = 1.1; synth.cancel(); synth.speak(u); };
+    speak = (text, options = {}) => { const { lang = 'en-US' } = options; if (!synth) return; const u = new SpeechSynthesisUtterance(text); const v = synth.getVoices().find(v => v.lang === lang) || synth.getVoices().find(v => v.lang.startsWith(lang.substring(0,2))) || synth.getVoices().find(v => v.lang.startsWith('en')) || synth.getVoices()[0]; if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = lang; } u.rate = 0.9; u.pitch = 1.1; synth.cancel(); synth.speak(u); };
     planets.splice(0, planets.length, { id: 'mercury', name: 'Mercury', color: '#a3a3a3', size: 'w-6 h-6 md:w-8 md:h-8' }, { id: 'venus', name: 'Venus', color: '#f59e0b', size: 'w-8 h-8 md:w-12 md:h-12' }, { id: 'earth', name: 'Earth', color: '#3b82f6', size: 'w-8 h-8 md:w-12 md:h-12' }, { id: 'mars', name: 'Mars', color: '#ef4444', size: 'w-7 h-7 md:w-10 md:h-10' }, { id: 'jupiter', name: 'Jupiter', color: '#d97706', size: 'w-12 h-12 md:w-20 md:h-20' }, { id: 'saturn', name: 'Saturn', color: '#ca8a04', size: 'w-11 h-11 md:w-16 md:h-16', hasRing: true }, { id: 'uranus', name: 'Uranus', color: '#67e8f9', size: 'w-10 h-10 md:w-14 md:h-14' }, { id: 'neptune', name: 'Neptune', color: '#60a5fa', size: 'w-10 h-10 md:w-14 md:h-14' });
-    funFacts.splice(0, funFacts.length, { id: 'mercury', title: 'Mercury', text: "Let's find <strong>Mercury</strong>! It's the planet closest to the <strong>Sun</strong> (Mặt Trời)." }, { id: 'venus', title: 'Venus', text: "This is <strong>Venus</strong>! It's the <strong>hot</strong>-test planet in our solar system." }, { id: 'earth', title: 'Earth', text: "Our home! <strong>Earth</strong> is a special <strong>rocky</strong> planet with water and life." }, { id: 'mars', title: 'Mars', text: "Can you find the <strong>red</strong> planet? That's <strong>Mars</strong>!" }, { id: 'jupiter', title: 'Jupiter', text: "This is <strong>Jupiter</strong>! It’s a <strong>gas giant</strong> (người khổng lồ khí). It is very, very <strong>big</strong> (rất, rất to lớn)!" }, { id: 'saturn', title: 'Saturn', text: "Wow, look at the beautiful <strong>ring</strong> (vành đai)! This is <strong>Saturn</strong>." }, { id: 'uranus', title: 'Uranus', text: "<strong>Uranus</strong> is a <strong>cold</strong>, icy giant that spins on its side." }, { id: 'neptune', title: 'Neptune', text: "<strong>Neptune</strong> is very <strong>far</strong> away and very, very <strong>blue</strong>!" } );
-    quizItems.splice(0, quizItems.length, { id: 'rocket', name: 'Rocket', svg: `<svg class="w-12 h-12" viewBox="0 0 24 24"><path fill="currentColor" d="M13.15 16.27L9.9 13.02l-3.17 3.17L2.81 12.27l3.17-3.17-3.17-3.17L6.73 2.81l3.17 3.17L13.07 2.8l1.41 3.92-3.48 3.48 3.15 3.15-1.08 3.92M15 2v4h4v2h-4v4h-2v-4H9V6h4V2h2m2 16.78V15.9l-1-1-1.05 1.05.51 1.54-1.28.42-.42-1.29L12.22 15l-1.54-.51.42-1.28 1.29.42-.42-1.29-1.53-.5L10 12.22l.51 1.54-1.28.42-.42-1.29-1.54-.51L6 12.64l.51 1.53-.51 1.54-1.29-.42.42 1.29L4.7 17.5l-1.53.5.42 1.28 1.54-.51.51-1.54 1.54.51.51 1.54.42 1.28 1.28-.42.42-1.29 1.05-1.05 1.04 1.04v.88h1.22l2.33-2.33h.03l.03-.03.02-.02.48-.48.52-.52.5-.5.44-.44c.3-.3.3-.77 0-1.06l-1-1a.75.75 0 00-1.06 0l-.44.44-.5.5-.52.52-.48.48-.02.02-.03.03h-.03z"/></svg>`}, { id: 'star', name: 'Star', svg: `<svg class="w-12 h-12" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>`}, { id: 'helmet', name: 'Helmet', svg: `<svg class="w-12 h-12" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12v4c0 2.21 1.79 4 4 4h12c2.21 0 4-1.79 4-4v-4C22 6.477 17.523 2 12 2zM4 13.044V12c0-4.418 3.582-8 8-8s8 3.582 8 8v1.044A5.968 5.968 0 0118 16c0 .774-.15 1.511-.422 2.188A3.984 3.984 0 0118 18H6c-.53 0-1.036-.104-1.5-.29V16c0-1.42.58-2.705 1.5-3.655A5.968 5.968 0 014 13.044zM7 14h10v2H7v-2z" fill="currentColor"/></svg>`}, { id: 'planet', name: 'Planet', svg: `<svg class="w-12 h-12" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.82,15.24C17.38,14.07 17.6,12.8 17.39,11.54C17.1,8.37 14.83,5.82 11.9,5.26C11.5,5.18 11.07,5.14 10.65,5.14C9.5,5.14 8.5,5.39 7.57,5.83C7,6.07 6.4,6.47 6,6.84L7.4,8.24C7.6,8.04 7.8,7.9 8.1,7.74C8.75,7.44 9.5,7.24 10.3,7.24C12.94,7.24 15.1,9.4 15.1,12C15.1,12.84 14.88,13.62 14.5,14.28L15.9,15.68C16.27,15.53 16.57,15.41 16.82,15.24M6.76,16.82C5.93,15.5 5.6,14 5.61,12.46C5.9,9.29 8.17,6.74 11.1,6.18C12.12,5.97 13.15,6 14.16,6.32L12.76,7.72C12.11,7.5 11.45,7.36 10.8,7.36C8.16,7.36 6,9.5 6,12.1C6,12.94 6.22,13.72 6.5,14.38L5.1,15.78C4.73,15.63 4.43,15.51 4.18,15.36L6.76,16.82Z" fill="currentColor" /></svg>`} );
-    playLaunchAnimation = () => { nextButton.classList.add('hidden'); const a = document.getElementById('assembly-area'), f = document.getElementById('launch-flames'); speak("Countdown... 3, 2, 1, Liftoff!", {lang: 'en-US'}); setTimeout(() => { a.classList.add('shake'); f.style.opacity = '1'; f.classList.add('active'); }, 2000); setTimeout(() => { a.classList.remove('shake'); a.style.transition = 'transform 2s ease-in, opacity 2s'; a.style.transform = 'translateY(-150%)'; a.style.opacity = '0'; }, 4000); setTimeout(() => { a.style.transition = ''; a.style.transform = ''; a.style.opacity = '1'; f.style.opacity = '0'; f.classList.remove('active'); setupMission2(); }, 6500); };
-    setupMission1 = () => { currentMission = 1; missionTitle.innerHTML = 'Nhiệm Vụ 1: Lắp Ráp Tàu Con Thoi'; updateProgressBar(); showMission(1); const d = document.querySelectorAll('#mission-1-content .draggable'), z = document.querySelectorAll('#mission-1-content .drop-zone'); d.forEach(d => { d.style.visibility = 'visible'; d.draggable = true; }); document.querySelectorAll('[id$="-assembled"]').forEach(a => a.style.opacity = '0'); z.forEach(d => d.classList.remove('correct')); let i = null, c = 0; const t = 3; d.forEach(d => { d.addEventListener('dragstart', (e) => { i = e.target.closest('.draggable'); setTimeout(() => { if (i) i.classList.add('dragging'); }, 0); }); d.addEventListener('dragend', () => { if (i) i.classList.remove('dragging'); i = null; }); }); z.forEach(z => { z.addEventListener('dragover', (e) => { e.preventDefault(); z.classList.add('drag-over'); }); z.addEventListener('dragleave', () => z.classList.remove('drag-over')); z.addEventListener('drop', (e) => { e.preventDefault(); z.classList.remove('drag-over'); if (i && i.dataset.item === z.dataset.item) { playSound('correct'); speak(i.dataset.item, { lang: 'en-US' }); const a = document.getElementById(`${i.dataset.item}-assembled`); if (a) a.style.opacity = '1'; i.style.visibility = 'hidden'; i.draggable = false; z.classList.add('correct'); updateScore(10); c++; if (c === t) { nextButton.textContent = "Phóng tàu!"; nextButton.classList.remove('hidden'); nextButton.onclick = playLaunchAnimation; } } else { playSound('wrong'); if (i) { i.classList.add('shake'); setTimeout(() => i.classList.remove('shake'), 500); } } }); }); };
-    setupMission2 = () => { currentMission = 2; missionTitle.innerHTML = 'Nhiệm Vụ 2: Sắp Xếp Hệ Mặt Trời'; updateProgressBar(); showMission(2); const psc = document.getElementById('planet-slots'), pbc = document.getElementById('planet-bank'); psc.innerHTML = ''; pbc.innerHTML = ''; document.getElementById('mission-2-subtitle').textContent = `Vòng ${mission2Round}: Hãy sắp xếp các hành tinh.`; planets.forEach((p, i) => { const s = document.createElement('div'); s.className = 'flex-shrink-0 flex flex-col items-center justify-center'; s.innerHTML = `<div id="slot-${p.id}" data-planet="${p.id}" class="drop-zone ${p.size} rounded-full flex items-center justify-center bg-black/20">${mission2Round === 1 ? `<span class="text-white text-xl font-bold">${i + 1}</span>` : ''}</div>${mission2Round === 1 ? `<p class="text-xs mt-1 text-gray-400">${p.name}</p>` : ''}`; psc.appendChild(s); }); const sp = [...planets].sort(() => Math.random() - 0.5); sp.forEach(p => { const pe = document.createElement('div'); pe.id = `drag-${p.id}`; pe.dataset.item = p.id; pe.draggable = true; pe.className = `draggable ${p.size} rounded-full flex-shrink-0 relative planet-glow-${p.id}`; pe.style.backgroundColor = p.color; if (p.hasRing) { pe.innerHTML = `<div class="absolute w-[150%] h-[150%] border-2 border-yellow-200/50 rounded-full" style="transform: translate(-50%, -50%) rotate(30deg) skew(40deg); top: 50%; left: 50%;"></div>`; } pbc.appendChild(pe); }); let di = null, cp = 0; const dr = document.querySelectorAll('#mission-2-content .draggable'), dz = document.querySelectorAll('#mission-2-content .drop-zone'); dr.forEach(d => { d.addEventListener('dragstart', (e) => { di = e.target; setTimeout(() => e.target.style.opacity = '0.5', 0); }); d.addEventListener('dragend', (e) => { setTimeout(() => e.target.style.opacity = '1', 0); }); }); dz.forEach(z => { z.addEventListener('dragover', e => { e.preventDefault(); z.classList.add('drag-over'); }); z.addEventListener('dragleave', () => z.classList.remove('drag-over')); z.addEventListener('drop', (e) => { e.preventDefault(); z.classList.remove('drag-over'); if (di && di.dataset.item === z.dataset.planet) { playSound('correct'); speak(z.dataset.planet, {lang: 'en-US'}); z.innerHTML = ''; z.appendChild(di); di.draggable = false; di.classList.remove('draggable'); z.classList.add('correct'); updateScore(5); cp++; if (cp === planets.length) { if (mission2Round === 1) { mission2Round = 2; nextButton.textContent = "Vòng 2"; nextButton.classList.remove('hidden'); nextButton.onclick = setupMission2; } else { nextButton.textContent = "Tiếp theo"; nextButton.classList.remove('hidden'); nextButton.onclick = setupMission3; } } } else { playSound('wrong'); if (di) { di.classList.add('shake'); setTimeout(() => di.classList.remove('shake'), 500); } } }); }); };
-    setupMission3 = async () => { currentMission = 3; missionTitle.innerHTML = 'Nhiệm Vụ 3: Khám Phá Điều Kỳ Thú'; updateProgressBar(); showMission(3); nextButton.classList.add('hidden'); const c = document.getElementById('fun-fact-card'), t = document.getElementById('fun-fact-title'), i = document.getElementById('fun-fact-image'), x = document.getElementById('fun-fact-text'); for (const f of funFacts) { await new Promise(r => setTimeout(r, 500)); c.classList.remove('scale-0', 'opacity-0'); c.classList.add('scale-100', 'opacity-100'); const p = planets.find(p => p.id === f.id); t.textContent = f.title; x.innerHTML = f.text; let h = `<div class="${p.size} rounded-full planet-glow-${p.id}" style="background-color:${p.color}; margin: auto; position: relative;">`; if (p.hasRing) { h += `<div class="absolute w-[150%] h-[150%] border-2 border-yellow-200/50 rounded-full" style="transform: translate(-50%, -50%) rotate(30deg) skew(40deg); top: 50%; left: 50%;"></div>`; } h += '</div>'; i.innerHTML = h; speak(f.text.replace(/<[^>]*>/g, ''), {lang: 'en-US'}); updateScore(2); await new Promise(r => setTimeout(r, 5000)); c.classList.remove('scale-100', 'opacity-100'); c.classList.add('scale-0', 'opacity-0'); } setupMission4(); };
-    setupMission4 = () => { currentMission = 4; missionTitle.innerHTML = 'Nhiệm Vụ 4: Trắc Nghiệm Từ Vựng'; updateProgressBar(); showMission(4); mission4MatchedPairs = 0; const ic = document.getElementById('quiz-images'), wc = document.getElementById('quiz-words'); ic.innerHTML = ''; wc.innerHTML = ''; const si = [...quizItems].sort(() => Math.random() - 0.5), sw = [...quizItems].sort(() => Math.random() - 0.5); si.forEach(i => { const d = document.createElement('div'); d.className = 'quiz-item p-2 rounded-lg cursor-pointer'; d.dataset.id = i.id; d.innerHTML = i.svg; ic.appendChild(d); }); sw.forEach(i => { const d = document.createElement('div'); d.className = 'quiz-item p-2 rounded-lg cursor-pointer text-center'; d.dataset.id = i.id; d.innerHTML = `<span class="font-bold text-lg">${i.name}</span>`; wc.appendChild(d); }); let selI = null, selW = null; ic.addEventListener('click', (e) => { const t = e.target.closest('.quiz-item'); if (!t || t.classList.contains('matched')) return; if (selI) selI.classList.remove('selected'); selI = t; selI.classList.add('selected'); checkMatch(); }); wc.addEventListener('click', (e) => { const t = e.target.closest('.quiz-item'); if (!t || t.classList.contains('matched')) return; if (selW) selW.classList.remove('selected'); selW = t; selW.classList.add('selected'); checkMatch(); }); function checkMatch() { if (!selI || !selW) return; if (selI.dataset.id === selW.dataset.id) { playSound('correct'); speak(selW.textContent, {lang: 'en-US'}); selI.classList.add('matched'); selW.classList.add('matched'); selI.classList.remove('selected'); selW.classList.remove('selected'); updateScore(10); mission4MatchedPairs++; if (mission4MatchedPairs === quizItems.length) { nextButton.textContent = "Nhiệm vụ cuối!"; nextButton.classList.remove('hidden'); nextButton.onclick = setupMission5; } } else { playSound('wrong'); selI.classList.add('shake'); selW.classList.add('shake'); setTimeout(() => { if (selI) selI.classList.remove('shake', 'selected'); if (selW) selW.classList.remove('shake', 'selected'); selI = null; selW = null; }, 500); } if (selI && selW) { setTimeout(() => { if (selI && !selI.classList.contains('matched')) selI.classList.remove('selected'); if (selW && !selW.classList.contains('matched')) selW.classList.remove('selected'); selI = null; selW = null; }, 200); } } };
-    showEndScreen = () => { gameScreen.classList.add('hidden'); endScreen.classList.remove('hidden'); finalScoreDisplay.textContent = score; speak("Congratulations, Little Astronaut! You have completed the mission!", {lang: 'en-US'}); };
+    funFacts.splice(0, funFacts.length, { id: 'mercury', title: 'Sao Thủy (Mercury)', text: "Hãy tìm <strong>Sao Thủy (Mercury)</strong>! Đây là hành tinh ở gần <strong>Mặt Trời (Sun)</strong> nhất đấy." }, { id: 'venus', title: 'Sao Kim (Venus)', text: "Đây là <strong>Sao Kim (Venus)</strong>! Đây là hành tinh <strong>nóng (hot)</strong> nhất trong hệ mặt trời của chúng ta." }, { id: 'earth', title: 'Trái Đất (Earth)', text: "Nhà của chúng ta! <strong>Trái Đất (Earth)</strong> là một hành tinh <strong>đá</strong> đặc biệt có nước và sự sống." }, { id: 'mars', title: 'Sao Hỏa (Mars)', text: "Con có thấy hành tinh <strong>đỏ (red)</strong> không? Đó chính là <strong>Sao Hỏa (Mars)</strong>!" }, { id: 'jupiter', title: 'Sao Mộc (Jupiter)', text: "Đây là <strong>Sao Mộc (Jupiter)</strong>! Đó là một <strong>người khổng lồ khí (gas giant)</strong>. Nó rất, rất <strong>lớn (big)</strong>!" }, { id: 'saturn', title: 'Sao Thổ (Saturn)', text: "Wow, hãy nhìn <strong>vành đai (ring)</strong> xinh đẹp kìa! Đây là <strong>Sao Thổ (Saturn)</strong>." }, { id: 'uranus', title: 'Sao Thiên Vương (Uranus)', text: "<strong>Sao Thiên Vương (Uranus)</strong> là một gã khổng lồ băng <strong>lạnh (cold)</strong> giá, quay nghiêng một bên." }, { id: 'neptune', title: 'Sao Hải Vương (Neptune)', text: "<strong>Sao Hải Vương (Neptune)</strong> ở rất, rất <strong>xa (far)</strong> và có màu <strong>xanh (blue)</strong> biếc!" } );
+    quizItems.splice(0, quizItems.length, { id: 'rocket', name: 'Rocket', viName: 'Tên lửa (Rocket)', svg: `<svg class="w-12 h-12" viewBox="0 0 24 24"><path fill="currentColor" d="M13.15 16.27L9.9 13.02l-3.17 3.17L2.81 12.27l3.17-3.17-3.17-3.17L6.73 2.81l3.17 3.17L13.07 2.8l1.41 3.92-3.48 3.48 3.15 3.15-1.08 3.92M15 2v4h4v2h-4v4h-2v-4H9V6h4V2h2m2 16.78V15.9l-1-1-1.05 1.05.51 1.54-1.28.42-.42-1.29L12.22 15l-1.54-.51.42-1.28 1.29.42-.42-1.29-1.53-.5L10 12.22l.51 1.54-1.28.42-.42-1.29-1.54-.51L6 12.64l.51 1.53-.51 1.54-1.29-.42.42 1.29L4.7 17.5l-1.53.5.42 1.28 1.54-.51.51-1.54 1.54.51.51 1.54.42 1.28 1.28-.42.42-1.29 1.05-1.05 1.04 1.04v.88h1.22l2.33-2.33h.03l.03-.03.02-.02.48-.48.52-.52.5-.5.44-.44c.3-.3.3-.77 0-1.06l-1-1a.75.75 0 00-1.06 0l-.44.44-.5.5-.52.52-.48.48-.02.02-.03.03h-.03z"/></svg>`}, { id: 'star', name: 'Star', viName: 'Ngôi sao (Star)', svg: `<svg class="w-12 h-12" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>`}, { id: 'helmet', name: 'Helmet', viName: 'Mũ phi hành gia (Helmet)', svg: `<svg class="w-12 h-12" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12v4c0 2.21 1.79 4 4 4h12c2.21 0 4-1.79 4-4v-4C22 6.477 17.523 2 12 2zM4 13.044V12c0-4.418 3.582-8 8-8s8 3.582 8 8v1.044A5.968 5.968 0 0118 16c0 .774-.15 1.511-.422 2.188A3.984 3.984 0 0118 18H6c-.53 0-1.036-.104-1.5-.29V16c0-1.42.58-2.705 1.5-3.655A5.968 5.968 0 014 13.044zM7 14h10v2H7v-2z" fill="currentColor"/></svg>`}, { id: 'planet', name: 'Planet', viName: 'Hành tinh (Planet)', svg: `<svg class="w-12 h-12" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.82,15.24C17.38,14.07 17.6,12.8 17.39,11.54C17.1,8.37 14.83,5.82 11.9,5.26C11.5,5.18 11.07,5.14 10.65,5.14C9.5,5.14 8.5,5.39 7.57,5.83C7,6.07 6.4,6.47 6,6.84L7.4,8.24C7.6,8.04 7.8,7.9 8.1,7.74C8.75,7.44 9.5,7.24 10.3,7.24C12.94,7.24 15.1,9.4 15.1,12C15.1,12.84 14.88,13.62 14.5,14.28L15.9,15.68C16.27,15.53 16.57,15.41 16.82,15.24M6.76,16.82C5.93,15.5 5.6,14 5.61,12.46C5.9,9.29 8.17,6.74 11.1,6.18C12.12,5.97 13.15,6 14.16,6.32L12.76,7.72C12.11,7.5 11.45,7.36 10.8,7.36C8.16,7.36 6,9.5 6,12.1C6,12.94 6.22,13.72 6.5,14.38L5.1,15.78C4.73,15.63 4.43,15.51 4.18,15.36L6.76,16.82Z" fill="currentColor" /></svg>`} );
+    playLaunchAnimation = () => { nextButton.classList.add('hidden'); const a = document.getElementById('assembly-area'), f = document.getElementById('launch-flames'); speak("Đếm ngược... 3, 2, 1, Phóng!", {lang: 'vi-VN'}); setTimeout(() => { a.classList.add('shake'); f.style.opacity = '1'; f.classList.add('active'); }, 2000); setTimeout(() => { a.classList.remove('shake'); a.style.transition = 'transform 2s ease-in, opacity 2s'; a.style.transform = 'translateY(-150%)'; a.style.opacity = '0'; }, 4000); setTimeout(() => { a.style.transition = ''; a.style.transform = ''; a.style.opacity = '1'; f.style.opacity = '0'; f.classList.remove('active'); setupMission2(); }, 6500); };
+    setupMission1 = () => { currentMission = 1; missionTitle.innerHTML = 'Nhiệm Vụ 1: Lắp Ráp Tàu Con Thoi'; updateProgressBar(); showMission(1); const m1Vocab = { cone: 'Chóp tàu (cone)', body: 'Thân tàu (body)', fins: 'Cánh (fins)' }; const d = document.querySelectorAll('#mission-1-content .draggable'), z = document.querySelectorAll('#mission-1-content .drop-zone'); d.forEach(d => { d.style.visibility = 'visible'; d.draggable = true; }); document.querySelectorAll('[id$="-assembled"]').forEach(a => a.style.opacity = '0'); z.forEach(d => d.classList.remove('correct')); let i = null, c = 0; const t = 3; d.forEach(d => { d.addEventListener('dragstart', (e) => { i = e.target.closest('.draggable'); setTimeout(() => { if (i) i.classList.add('dragging'); }, 0); }); d.addEventListener('dragend', () => { if (i) i.classList.remove('dragging'); i = null; }); }); z.forEach(z => { z.addEventListener('dragover', (e) => { e.preventDefault(); z.classList.add('drag-over'); }); z.addEventListener('dragleave', () => z.classList.remove('drag-over')); z.addEventListener('drop', (e) => { e.preventDefault(); z.classList.remove('drag-over'); if (i && i.dataset.item === z.dataset.item) { playSound('correct'); speak(m1Vocab[i.dataset.item] || i.dataset.item, { lang: 'vi-VN' }); const a = document.getElementById(`${i.dataset.item}-assembled`); if (a) a.style.opacity = '1'; i.style.visibility = 'hidden'; i.draggable = false; z.classList.add('correct'); updateScore(10); c++; if (c === t) { nextButton.textContent = "Phóng tàu!"; nextButton.classList.remove('hidden'); nextButton.onclick = playLaunchAnimation; } } else { playSound('wrong'); if (i) { i.classList.add('shake'); setTimeout(() => i.classList.remove('shake'), 500); } } }); }); };
+    setupMission2 = () => { currentMission = 2; missionTitle.innerHTML = 'Nhiệm Vụ 2: Sắp Xếp Hệ Mặt Trời'; updateProgressBar(); showMission(2); const m2Vocab = { mercury: 'Sao Thủy (Mercury)', venus: 'Sao Kim (Venus)', earth: 'Trái Đất (Earth)', mars: 'Sao Hỏa (Mars)', jupiter: 'Sao Mộc (Jupiter)', saturn: 'Sao Thổ (Saturn)', uranus: 'Sao Thiên Vương (Uranus)', neptune: 'Sao Hải Vương (Neptune)' }; const psc = document.getElementById('planet-slots'), pbc = document.getElementById('planet-bank'); psc.innerHTML = ''; pbc.innerHTML = ''; document.getElementById('mission-2-subtitle').textContent = `Vòng ${mission2Round}: Hãy sắp xếp các hành tinh.`; planets.forEach((p, i) => { const s = document.createElement('div'); s.className = 'flex-shrink-0 flex flex-col items-center justify-center'; s.innerHTML = `<div id="slot-${p.id}" data-planet="${p.id}" class="drop-zone ${p.size} rounded-full flex items-center justify-center bg-black/20">${mission2Round === 1 ? `<span class="text-white text-xl font-bold">${i + 1}</span>` : ''}</div>${mission2Round === 1 ? `<p class="text-xs mt-1 text-gray-400">${p.name}</p>` : ''}`; psc.appendChild(s); }); const sp = [...planets].sort(() => Math.random() - 0.5); sp.forEach(p => { const pe = document.createElement('div'); pe.id = `drag-${p.id}`; pe.dataset.item = p.id; pe.draggable = true; pe.className = `draggable ${p.size} rounded-full flex-shrink-0 relative planet-glow-${p.id}`; pe.style.backgroundColor = p.color; if (p.hasRing) { pe.innerHTML = `<div class="absolute w-[150%] h-[150%] border-2 border-yellow-200/50 rounded-full" style="transform: translate(-50%, -50%) rotate(30deg) skew(40deg); top: 50%; left: 50%;"></div>`; } pbc.appendChild(pe); }); let di = null, cp = 0; const dr = document.querySelectorAll('#mission-2-content .draggable'), dz = document.querySelectorAll('#mission-2-content .drop-zone'); dr.forEach(d => { d.addEventListener('dragstart', (e) => { di = e.target; setTimeout(() => e.target.style.opacity = '0.5', 0); }); d.addEventListener('dragend', (e) => { setTimeout(() => e.target.style.opacity = '1', 0); }); }); dz.forEach(z => { z.addEventListener('dragover', e => { e.preventDefault(); z.classList.add('drag-over'); }); z.addEventListener('dragleave', () => z.classList.remove('drag-over')); z.addEventListener('drop', (e) => { e.preventDefault(); z.classList.remove('drag-over'); if (di && di.dataset.item === z.dataset.planet) { playSound('correct'); speak(m2Vocab[z.dataset.planet] || z.dataset.planet, { lang: 'vi-VN' }); z.innerHTML = ''; z.appendChild(di); di.draggable = false; di.classList.remove('draggable'); z.classList.add('correct'); updateScore(5); cp++; if (cp === planets.length) { if (mission2Round === 1) { mission2Round = 2; nextButton.textContent = "Vòng 2"; nextButton.classList.remove('hidden'); nextButton.onclick = setupMission2; } else { nextButton.textContent = "Tiếp theo"; nextButton.classList.remove('hidden'); nextButton.onclick = setupMission3; } } } else { playSound('wrong'); if (di) { di.classList.add('shake'); setTimeout(() => di.classList.remove('shake'), 500); } } }); }); };
+    setupMission3 = async () => { currentMission = 3; missionTitle.innerHTML = 'Nhiệm Vụ 3: Khám Phá Điều Kỳ Thú'; updateProgressBar(); showMission(3); nextButton.classList.add('hidden'); const c = document.getElementById('fun-fact-card'), t = document.getElementById('fun-fact-title'), i = document.getElementById('fun-fact-image'), x = document.getElementById('fun-fact-text'); for (const f of funFacts) { await new Promise(r => setTimeout(r, 500)); c.classList.remove('scale-0', 'opacity-0'); c.classList.add('scale-100', 'opacity-100'); const p = planets.find(p => p.id === f.id); t.textContent = f.title; x.innerHTML = f.text; let h = `<div class="${p.size} rounded-full planet-glow-${p.id}" style="background-color:${p.color}; margin: auto; position: relative;">`; if (p.hasRing) { h += `<div class="absolute w-[150%] h-[150%] border-2 border-yellow-200/50 rounded-full" style="transform: translate(-50%, -50%) rotate(30deg) skew(40deg); top: 50%; left: 50%;"></div>`; } h += '</div>'; i.innerHTML = h; speak(f.text.replace(/<[^>]*>/g, ''), {lang: 'vi-VN'}); updateScore(2); await new Promise(r => setTimeout(r, 5000)); c.classList.remove('scale-100', 'opacity-100'); c.classList.add('scale-0', 'opacity-0'); } setupMission4(); };
+    setupMission4 = () => { currentMission = 4; missionTitle.innerHTML = 'Nhiệm Vụ 4: Trắc Nghiệm Từ Vựng'; updateProgressBar(); showMission(4); mission4MatchedPairs = 0; const ic = document.getElementById('quiz-images'), wc = document.getElementById('quiz-words'); ic.innerHTML = ''; wc.innerHTML = ''; const si = [...quizItems].sort(() => Math.random() - 0.5), sw = [...quizItems].sort(() => Math.random() - 0.5); si.forEach(i => { const d = document.createElement('div'); d.className = 'quiz-item p-2 rounded-lg cursor-pointer'; d.dataset.id = i.id; d.innerHTML = i.svg; ic.appendChild(d); }); sw.forEach(i => { const d = document.createElement('div'); d.className = 'quiz-item p-2 rounded-lg cursor-pointer text-center'; d.dataset.id = i.id; d.innerHTML = `<span class="font-bold text-lg">${i.name}</span>`; wc.appendChild(d); }); let selI = null, selW = null; ic.addEventListener('click', (e) => { const t = e.target.closest('.quiz-item'); if (!t || t.classList.contains('matched')) return; if (selI) selI.classList.remove('selected'); selI = t; selI.classList.add('selected'); checkMatch(); }); wc.addEventListener('click', (e) => { const t = e.target.closest('.quiz-item'); if (!t || t.classList.contains('matched')) return; if (selW) selW.classList.remove('selected'); selW = t; selW.classList.add('selected'); checkMatch(); }); function checkMatch() { if (!selI || !selW) return; if (selI.dataset.id === selW.dataset.id) { playSound('correct'); const matchedItem = quizItems.find(item => item.id === selI.dataset.id); speak(matchedItem?.viName || selW.textContent, { lang: 'vi-VN' }); selI.classList.add('matched'); selW.classList.add('matched'); selI.classList.remove('selected'); selW.classList.remove('selected'); updateScore(10); mission4MatchedPairs++; if (mission4MatchedPairs === quizItems.length) { nextButton.textContent = "Nhiệm vụ cuối!"; nextButton.classList.remove('hidden'); nextButton.onclick = setupMission5; } } else { playSound('wrong'); selI.classList.add('shake'); selW.classList.add('shake'); setTimeout(() => { if (selI) selI.classList.remove('shake', 'selected'); if (selW) selW.classList.remove('shake', 'selected'); selI = null; selW = null; }, 500); } if (selI && selW) { setTimeout(() => { if (selI && !selI.classList.contains('matched')) selI.classList.remove('selected'); if (selW && !selW.classList.contains('matched')) selW.classList.remove('selected'); selI = null; selW = null; }, 200); } } };
+    showEndScreen = () => { gameScreen.classList.add('hidden'); endScreen.classList.remove('hidden'); finalScoreDisplay.textContent = score; speak("Chúc mừng Phi Hành Gia Nhí! Con đã hoàn thành xuất sắc nhiệm vụ!", {lang: 'vi-VN'}); };
     resetGame = () => { currentMission = 0; score = 0; mission2Round = 1; mission4MatchedPairs = 0; updateScore(0); endScreen.classList.add('hidden'); startScreen.classList.remove('hidden'); };
 });
 </script>
 
 </body>
 </html>
-
