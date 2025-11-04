@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Added rate and pitch to options, defaulting to 0.9 and 1.1
     // Default language is now vi-VN
     speak = (text, options = {}) => {
-        const { lang = 'vi-VN', rate = 1.0, pitch = 1.1 } = options;
+        const { lang = 'vi-VN', rate = 0.65, pitch = 1.1 } = options;
         if (!synth) return;
         const u = new SpeechSynthesisUtterance(text);
         const v = synth.getVoices().find(v => v.lang === lang) || synth.getVoices().find(v => v.lang.startsWith(lang.substring(0,2))) || synth.getVoices().find(v => v.lang.startsWith('en')) || synth.getVoices()[0];
@@ -513,4 +513,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
